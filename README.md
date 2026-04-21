@@ -162,7 +162,7 @@ ps aux | grep defunct
 
 > **Caption:** `dmesg` output showing a soft-limit warning event logged by the kernel module when a container's RSS first exceeds its configured soft limit (e.g., 48 MiB for container `alpha`).
 
-<img width="1040" height="29" alt="image" src="https://github.com/user-attachments/assets/192ade6e-13df-4954-9d3a-605272d8d42c" />
+<img width="1340" height="91" alt="image" src="https://github.com/user-attachments/assets/53ea8534-51a2-4149-8537-c927e40f0ec7" />
 
 ---
 
@@ -170,7 +170,7 @@ ps aux | grep defunct
 
 > **Caption:** `dmesg` output showing the kernel module terminating a container after its RSS exceeds the hard limit. The `engine ps` output reflects the container state as `hard_limit_killed`.
 
-<img width="1040" height="151" alt="image" src="https://github.com/user-attachments/assets/5213a9c8-fd47-4c63-b5f5-ece528b5df9a" />
+<img width="1041" height="541" alt="image" src="https://github.com/user-attachments/assets/d5391a14-daca-4ce5-9c06-302c18cb4f82" />
 
 ---
 
@@ -178,9 +178,7 @@ ps aux | grep defunct
 
 > **Caption:** Terminal output comparing completion times (or CPU share) for two CPU-bound containers running at different nice values (`-5` vs `+5`). The higher-priority container finishes measurably faster.
 
-<img width="1204" height="519" alt="image" src="https://github.com/user-attachments/assets/c3f64fbf-33ae-4ef0-92b7-2739eb7c1827" />
-
-<img width="1204" height="450" alt="image" src="https://github.com/user-attachments/assets/0e00db94-5177-4208-9212-d9c72b855221" />
+<img width="1209" height="134" alt="image" src="https://github.com/user-attachments/assets/7b030012-378c-4f8a-af64-3795b3b57f03" />
 
 ---
 
@@ -188,7 +186,7 @@ ps aux | grep defunct
 
 > **Caption:** After stopping all containers and shutting down the supervisor, `ps aux` shows no zombie (`<defunct>`) processes. Supervisor exit messages confirm all logging threads joined and file descriptors were closed.
 
-
+<img width="701" height="249" alt="image" src="https://github.com/user-attachments/assets/a5836a66-1ddf-4ea5-a4b1-9c670b6dee20" />
 
 ---
 
