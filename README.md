@@ -4,8 +4,8 @@
 
 | Name | SRN |
 |------|-----|
-| [Student 1 Name] | [SRN1] |
-| [Student 2 Name] | [SRN2] |
+| Kari Bhavitha | PES1UG25CS821 |
+|  | PES1UG24CS331 |
 
 ---
 
@@ -130,7 +130,7 @@ ps aux | grep defunct
 
 > **Caption:** Two containers (`alpha` and `beta`) running concurrently under a single supervisor process. The supervisor PID remains constant while both container child processes are visible.
 
-<!-- PASTE SCREENSHOT 1 HERE -->
+<img width="898" height="137" alt="image" src="https://github.com/user-attachments/assets/306eba9c-c664-4ab2-a360-8393875f8e8b" />
 
 ---
 
@@ -138,7 +138,7 @@ ps aux | grep defunct
 
 > **Caption:** Output of `engine ps` showing tracked metadata for both containers: container ID, host PID, start time, state, configured memory limits, and log file path.
 
-<!-- PASTE SCREENSHOT 2 HERE -->
+<img width="898" height="137" alt="image" src="https://github.com/user-attachments/assets/036959ba-ab9f-4eac-87e2-39f8bfb6630b" />
 
 ---
 
@@ -146,7 +146,7 @@ ps aux | grep defunct
 
 > **Caption:** Contents of a per-container log file captured through the producer-consumer logging pipeline. The supervisor output also shows producer/consumer thread activity (buffer inserts and flushes).
 
-<!-- PASTE SCREENSHOT 3 HERE -->
+<img width="1127" height="236" alt="image" src="https://github.com/user-attachments/assets/bf3095a5-afe5-4015-b98d-89da78447c9f" />
 
 ---
 
@@ -154,7 +154,7 @@ ps aux | grep defunct
 
 > **Caption:** A CLI command (`engine start`) is issued in one terminal. The supervisor receives it over the UNIX domain socket control channel and responds with a confirmation, demonstrating Path B IPC.
 
-<!-- PASTE SCREENSHOT 4 HERE -->
+<img width="1220" height="100" alt="image" src="https://github.com/user-attachments/assets/3974cc70-cfed-4e56-ae3c-0d601750e96f" />
 
 ---
 
@@ -162,7 +162,7 @@ ps aux | grep defunct
 
 > **Caption:** `dmesg` output showing a soft-limit warning event logged by the kernel module when a container's RSS first exceeds its configured soft limit (e.g., 48 MiB for container `alpha`).
 
-<!-- PASTE SCREENSHOT 5 HERE -->
+<img width="1040" height="29" alt="image" src="https://github.com/user-attachments/assets/192ade6e-13df-4954-9d3a-605272d8d42c" />
 
 ---
 
@@ -170,7 +170,7 @@ ps aux | grep defunct
 
 > **Caption:** `dmesg` output showing the kernel module terminating a container after its RSS exceeds the hard limit. The `engine ps` output reflects the container state as `hard_limit_killed`.
 
-<!-- PASTE SCREENSHOT 6 HERE -->
+<img width="1040" height="151" alt="image" src="https://github.com/user-attachments/assets/5213a9c8-fd47-4c63-b5f5-ece528b5df9a" />
 
 ---
 
@@ -178,7 +178,9 @@ ps aux | grep defunct
 
 > **Caption:** Terminal output comparing completion times (or CPU share) for two CPU-bound containers running at different nice values (`-5` vs `+5`). The higher-priority container finishes measurably faster.
 
-<!-- PASTE SCREENSHOT 7 HERE -->
+<img width="1204" height="519" alt="image" src="https://github.com/user-attachments/assets/c3f64fbf-33ae-4ef0-92b7-2739eb7c1827" />
+
+<img width="1204" height="450" alt="image" src="https://github.com/user-attachments/assets/0e00db94-5177-4208-9212-d9c72b855221" />
 
 ---
 
@@ -186,7 +188,7 @@ ps aux | grep defunct
 
 > **Caption:** After stopping all containers and shutting down the supervisor, `ps aux` shows no zombie (`<defunct>`) processes. Supervisor exit messages confirm all logging threads joined and file descriptors were closed.
 
-<!-- PASTE SCREENSHOT 8 HERE -->
+
 
 ---
 
@@ -296,19 +298,17 @@ Our experiments show [refer to Section 6 results]. The CPU-bound container with 
 
 Two identical CPU-bound workloads (`cpu_workload`) were run concurrently inside separate containers. Each workload performed a fixed number of floating-point operations. We measured wall-clock completion time under two configurations:
 
-| Configuration | Container `alpha` nice | Container `beta` nice |
-|---------------|------------------------|----------------------|
-| Equal priority | 0 | 0 |
-| Asymmetric priority | -5 | +5 |
+| Container | Nice Value | Completion Time | Observation                                              |
+| --------- | ---------- | --------------- | -------------------------------------------------------- |
+| cpu-fast  | -5         | 18.2s           | Received higher priority, completed workload faster      |
+| cpu-slow  | 8          | 27.6s           | Lower scheduling priority, experienced reduced CPU share |
 
 ### Raw Measurements
 
-| Run | alpha nice | beta nice | alpha time (s) | beta time (s) |
-|-----|-----------|----------|---------------|--------------|
-| 1 | 0 | 0 | [X.X] | [X.X] |
-| 2 | 0 | 0 | [X.X] | [X.X] |
-| 3 | -5 | +5 | [X.X] | [X.X] |
-| 4 | -5 | +5 | [X.X] | [X.X] |
+| Container | Type      | Total Runtime | CPU Utilization Pattern                        |
+| --------- | --------- | ------------- | ---------------------------------------------- |
+| compute   | CPU-bound | 16.8s         | Constant 95–100% CPU usage                     |
+| disk-sim  | I/O-bound | 5.4s          | Bursty CPU usage with frequent sleep intervals |
 
 <!-- PASTE RAW TERMINAL OUTPUT OR MEASUREMENT TABLE SCREENSHOT HERE -->
 
