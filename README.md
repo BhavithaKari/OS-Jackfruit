@@ -146,7 +146,7 @@ ps aux | grep defunct
 
 > **Caption:** Contents of a per-container log file captured through the producer-consumer logging pipeline. The supervisor output also shows producer/consumer thread activity (buffer inserts and flushes).
 
-<img width="1127" height="236" alt="image" src="https://github.com/user-attachments/assets/bf3095a5-afe5-4015-b98d-89da78447c9f" />
+<img width="1322" height="221" alt="image" src="https://github.com/user-attachments/assets/cbaf0b7f-4c72-4155-9329-0c72994d4eb1" />
 
 ---
 
@@ -154,7 +154,7 @@ ps aux | grep defunct
 
 > **Caption:** A CLI command (`engine start`) is issued in one terminal. The supervisor receives it over the UNIX domain socket control channel and responds with a confirmation, demonstrating Path B IPC.
 
-<img width="1220" height="100" alt="image" src="https://github.com/user-attachments/assets/3974cc70-cfed-4e56-ae3c-0d601750e96f" />
+<img width="867" height="233" alt="image" src="https://github.com/user-attachments/assets/42f2e6b4-a50b-4ffc-bbd1-1cf877600fed" />
 
 ---
 
